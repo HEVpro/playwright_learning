@@ -9,7 +9,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "test": "playwright test"
+    "test": "playwright test",
+    "test:ui": "npx playwright test uiComponents.spec.ts --project=chromium"
   },
   "dependencies": {
     "@angular/animations": "^14.2.12",
@@ -22,6 +23,7 @@
     "@angular/platform-browser-dynamic": "^14.2.12",
     "@angular/router": "^14.2.12",
     "@asymmetrik/ngx-leaflet": "3.0.1",
+    "@faker-js/faker": "^8.4.1",
     "@nebular/auth": "10.0.0",
     "@nebular/eva-icons": "10.0.0",
     "@nebular/security": "10.0.0",
