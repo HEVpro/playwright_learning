@@ -10,7 +10,7 @@
     "ng": "ng",
     "start": "ng serve",
     "test": "playwright test",
-    "test:ui": "npx playwright test uiComponents.spec.ts --project=chromium"
+    "test:ui": "npx playwright test --project=chromium"
   },
   "dependencies": {
     "@angular/animations": "^14.2.12",

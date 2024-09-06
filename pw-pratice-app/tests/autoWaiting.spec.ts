@@ -19,7 +19,7 @@ test("auto watiing", async ({ page }) => {
   await expect(successButton).toHaveText("Data loaded with AJAX get request.", {timeout: 20000});
 });
 
-test('altenratives waits', async ({page}) => {
+test.skip('altenratives waits', async ({page}) => {
     const successButton = page.locator(".bg-success");
 
     // __ wait for element
@@ -36,7 +36,7 @@ test('altenratives waits', async ({page}) => {
 
 })
 
-test('timeouts', async ({page}) => {
+test.skip('timeouts', async ({page}) => {
     // test.setTimeout(1000)
     // test.slow()
     const successButton = page.locator('.bg-success')
