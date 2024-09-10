@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test } from "../test-options";
 import { PageManager } from "../page-objects/pageManager";
 import { faker } from "@faker-js/faker";
 
@@ -16,28 +16,14 @@ test("navigate to form page", async ({ page }) => {
   await pm.navigateTo().tooltipPage();
 });
 
-test("parametrized methods", async ({ page }) => {
-  const pm = new PageManager(page);
-
+test("parametrized methods", async ({ pageManager }) => {
   const fullName = faker.person.fullName();
   const email = faker.internet.email();
 
-  await pm.navigateTo().formLayoutPage();
-  await pm
+  await pageManager
     .onFormLayoutsPage()
     .submitUsingTheGridFormWithCredentials(email, "test123", "Option 1");
-  // Screenshot method 1
-  await page.screenshot({ path: "screenshots/formLayoutsPage.png" })
-  const buffer = await page.screenshot()
-  console.log(buffer.toString('base64'))
-  await pm
+  await pageManager
     .onFormLayoutsPage()
     .submitInlineFormWithEmailAndCheckbox(fullName, email, true);
-  // Screenshot method 2
-  await page.locator("nb-card", {
-    hasText: "Inline Form",
-  }).screenshot({ path: "screenshots/inlineForm.png" });
-  await pm.navigateTo().datePickerPage();
-  await pm.onDatePickerPage().selectCommonDatePickerDateFromToday(10);
-  await pm.onDatePickerPage().selectDatePickerWithRangeFromToday(6, 15);
 });
